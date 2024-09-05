@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Decimal y Binario</title>
+    <meta name="description" content="Conversor de valores binarios a decimales">
+    <meta name="og:tile" content="Conversor Binario y Decimal">
+    <meta name="og:image" content="./public/favicon.svg">
+    <meta name="og:image:alt" content="Conversor Binario y Decimal">
+    <link rel="icon" type="image/svg" href="./public/favicon.svg">
+</head>
+<body>
+<header>
+    <h1 class="mainTitle" >Conversores Decimal y Binario</h1>
+    <nav class="nav">
+        <ul class="navRouter">
+            <li><a class="navAnchors" href="/"> Portafolio </a></li>
+            <li><a class="navAnchors" href="#DecimalToBinary"> Conversor de Decimal a Binario </a></li>
+            <li><a class="navAnchors" href="#BinaryToDecimal"> Conversor de Binario a Decimal </a></li>
+            <li><a class="navAnchors" href="#explanationText"> Explicación</a></li>
+        </ul>
+    </nav>
+    <hr>
+</header>
+<main>
+    <section class="conversor">
+        <h3>Decimal a Binario</h3>
+        <label class="conversorDescription" for="DecimalToBinary">Introduce el número en base 10 (decimal) a convertir a binario:</label>
+        <input class="conversorInputs" placeholder="Ejemplo: 2" type="text" name="DecimalToBinary" id="DecimalToBinary"/>
+        <button class="buttons" type="button" onclick="transformDecimalToBinary()" >Convertir</button>
+        <br />
+        <textarea class="areasOutput" readonly name="resultDecimalToBinary" id="resultDecimalToBinary" placeholder="Resultado del Ejemplo: 10"></textarea>
+        <button class="buttons" type="button" onclick="copyResultDTB()"> ¡Copiar Resultado!  </button>
+    </section>
+    <script>
+        const patternDecimal = /^[0-9]+$/g;
+        const decimalInput   = document.getElementById('DecimalToBinary');
+        const binaryOutput   = document.getElementById('resultDecimalToBinary');
+        
+        /**
+         * @param  { string } value
+         * @return { boolean }
+        */
+        const isStrictNumeric = ( value ) => patternDecimal.test( value );
+
+        /**
+        * @param  { number } value
+        * @return { string } binary equivalent
+        */ 
+        const decimalToBinary = ( value ) => {
+            let binaryCounter = '';
+            while (value>0) {
+                binaryCounter = `${value%2}` + binaryCounter;
+                value = Math.floor( value/2 ); 
+            };
+
+            return binaryCounter || '0';
+        };
+
+        const transformDecimalToBinary = () =>{
+            binaryOutput.innerText = '';
+            if ( !isStrictNumeric( decimalInput.value ) ) {
+                alert('Ingresaste valores no validos, porfavor ingresa solo números :3')
+                binaryOutput.innerText = `Reintentalo de nuevo, porfavor`;
+                return;
+            };
+            // decimalInput.innerText = '';        
+            binaryOutput.innerText = decimalToBinary( +decimalInput.value );
+        };
+        
+        const copyResultDTB = () =>{
+            navigator.clipboard.writeText( binaryOutput.value ).then( () =>{
+                alert(`"${binaryOutput.value}" copiado exitosamente!`);
+            }).catch( err => {
+                alert('Lamento el incoveniente, pero no fue posible copiar los valores :C');
+            });
+        };
+    </script>
+    <br />
+    <section class="conversor">
+        <h3>Binario a Decimal</h3>
+        <label class="conversorDescription" for="BinaryToDecimal">Introduce el número base 2 (binario) a convertir a decimal</label>
+        <input class="conversorInputs" type="text" name="BinaryToDecimal" id="BinaryToDecimal" placeholder="Ejemplo: 11"/>
+        <button class="buttons" type="button" onclick="transformBinaryToDecimal()">Convertir</button>
+        <br />
+        <textarea class="areasOutput" readonly name="resultBinaryToDecimal" id="resultBinaryToDecimal" placeholder="Resultado del Ejemplo: 3"></textarea>
+        <button class="buttons" type="button" onclick="copyResultBTD()"> ¡Copiar Resultado!  </button>
+    </section>
+    <script>
+        const patternBinary = /^[01]+$/;
+        const binaryInput   = document.getElementById('BinaryToDecimal');
+        const decimalOutput = document.getElementById('resultBinaryToDecimal');
+        
+        /**
+         * @param  { string } value
+         * @return { boolean }
+        */
+        const isStrictBinary = ( value ) => patternBinary.test( value );
+
+        /**
+        * @param  { string } value
+        * @return { string } decimal equivalent
+        */ 
+        const binaryToDecimal = ( value ) => {
+            let decimalCounter = 0;
+            
+            for (let i = 0; i < value.length; i++) {
+                if( value[i] === '1' ) {
+                    decimalCounter += 2**(value.length-i-1);
+                };
+            };
+
+            return `${decimalCounter}` || '0';
+        };
+
+        const transformBinaryToDecimal = () =>{
+            decimalOutput.innerText = '';
+            if ( !isStrictBinary( binaryInput.value ) ) {
+                alert('Ingresaste valores no validos, porfavor ingresa solo ceros(0) y unos(1) :3')
+                decimalOutput.innerText = `Reintentalo de nuevo, porfavor`;
+                return;
+            };
+            decimalOutput.innerText = binaryToDecimal( binaryInput.value );
+        };
+        
+        const copyResultBTD = () =>{
+            navigator.clipboard.writeText( decimalOutput.value ).then( () =>{
+                alert(`"${decimalOutput.value}" copiado exitosamente!`);
+            }).catch( err => {
+                alert('Lamento el incoveniente, pero no fue posible copiar los valores :C');
+            });
+        };
+    </script>
+
+    <article class="explanationContent" id="explanationText">
+        <h2 class="explanationTitle" >¿Cómo funcionan el sistema binario, o incluso cómo funcionar cualquier sistema de base 'n'?</h2>
+        <h3 class="explanationApartado" id="explanationSistem">Base n</h3>
+        <p class="explanation">
+            El fundamento es simple, n representa el cambio de cifras en escrito, es decir:
+        </p>
+        <p class="explanation">
+            En base 10 (sistema decimal), se juntan 10 elementos para que cambien las cifras:
+        </p>
+        <p class="explanation">
+            00 01 02 03 04 05 06 07 08 09 10 <br/>
+            Como se puede ver, se necesitaron 10 números para cambiar la cantidad de veces que se repite las decenas dentro de nuestro sistema.
+            <br/>
+            Así que podemos decir que 1*10^0 = 1
+            <br/>
+            Si queremos obtener el número 9 en la primera decena es: 9*10^0 = 9
+            <br/>
+            Si queremos saber como se representa el 69 es: 6*10^1 + 9*10^0 = 69
+            <br/>
+            Nota que si queremos obtener en cualquier sistema su equivalente decimal es:
+            <p>
+                n es la cantidad de veces que vamos a representar nuestra unidad, en los ejemplos anteriores, 9 o 6 sería n
+                <br/>
+                N es el valor total de nuestro sistema, en el binario solamente hay 2 valores: 0 y 1; en el decimal son 10 valores: 0 al 9
+                <br/>
+                i es la posición que queremos describir
+                <br/>
+                n*(N)^i
+            </p>
+        </p>
+        <h3 class="explanationApartado" id="explanationBinary">Base 2 o sistema binario</h3>
+        <p class="explanation">
+            En este caso, solamente se necesitan 2 números para describir este sistema, siendo el 0 y 1 los necesarios en vez desde el 0 al nuevo en el sistema decimal:
+            En este caso el 0 actua igual como en el decimal <strong>la ausencia de valor</strong>, por lo que solamente el 1 describe un valor.
+            <br />
+            En otro caso habrías ententendido que 0 es negativo y 1 positivo.
+            <br />
+            <br />
+            <h4>Descripción de ejemplo:</h4> <br/>
+            0 es igual 0; 1 es igual 1; por lo que ya acabamos el primer par sin necesitar una cifra extra. <br/>
+            Por lo que para describir el valor de 2 es 10, y combinando para no desperdiciar digitos, entonces el valor 3  es igual a 11;
+            <br/>
+            <br/>
+            De otra forma más estrictamente matematica, se describe cada valor como 2 elevado a la posición de la cifra:
+            <br/>
+            <ul class="description">
+                <li>
+                    <strong>Ausencia de valor: </strong>
+                    0*2^0 = 0 => 0
+                </li>
+                <li>
+                    1*2^0 = 1 => 1
+                </li>
+                <li>
+                    1*2^1 = 2 => 10
+                </li>
+                <li>
+                    1*2^1 + 1*2^0 = 3 => 11
+                </li>
+                <li>
+                    1*2^2 = 4 => 100
+                </li>
+            </ul>
+        </p>
+    </article>
+</main>
+<style>
+    :root {
+        color-scheme: dark;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .mainTitle {
+        text-align: center;
+        font-size: 2em;
+        margin: 0.5rem auto;
+    }
+
+    .nav{
+        display: flex;
+        justify-content: center;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
+    
+    .conversor {
+        display: grid;
+        justify-content: center;
+        margin: 2rem auto;
+    }
+    
+    .conversor > h3{
+        text-align: center;
+    }
+    .conversorDescription {
+        padding: 1rem;
+    }
+
+    .conversorInputs {
+        background-color: rgb(80 80 80/ 50%);
+        border-radius: 0;
+    }
+
+    .areasOutput{
+        resize: none;
+    }
+
+    .buttons{
+        margin: 1rem auto;
+        border-radius: 0.3rem;
+        color: rgb(255, 255, 255);
+    }
+
+    .explanationContent {
+        margin: 2rem 4rem;
+    }
+
+    .explanationTitle{
+        text-align: center;
+    }
+
+    .explanation{
+        text-align: left;
+    }
+
+    .description {
+        list-style-type: none;
+        text-decoration: none;
+    }
+</style>
+</body>
+</html>

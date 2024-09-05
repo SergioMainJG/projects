@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portafolio</title>
+    <meta name="robots" content="index, follow"/>
+    <meta name="theme-color" content="#f0f0f0f0"/>
+    <meta name="description" content="portfolio de segioarce, 2 años de experiencia como programador y desarrollador"/>
+    <meta name="og:title" content="Portafolio de un desarrollador/programdor de aplicaciones web"/>
+    <meta name="og:image" content="src/img/yo.jpeg"/>
+    <meta name="og:image:alt" content="Portafolio de Sergio E. Arce R."/>
+    <link rel="icon" type="image/svg" href="src/favicon.svg" />
+    <!-- <link rel="alternate" type="http://algo.com/en" hreflang="es-gb"> Para contenido duplicado pero en diferentes idiomas-->
+    <link rel="canonical" href="https://serar.dev" />
+    <style>
+ :root {
+        color-scheme: dark;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .mainTitle {
+        text-align: center;
+        font-size: 2em;
+        margin: 0.5rem auto;
+    }
+
+    .nav{
+        display: flex;
+        justify-content: center;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+    <h1 class="mainTitle" >Portafolio ¡Por Sergio Arce!</h1>
+    <nav class="nav">
+        <ul class="navRouter">
+            <li><a class="navAnchors" href="/"> Portafolio </a></li>
+            <li><a class="navAnchors" href="https://github.com/SergioMainJG" target="_blank" rel="noreferrer">github</a></li>
+            <li><a class="navAnchors" href="/src/bin-to-dec/" target="_self">Conversor decimal y binario</a></li>
+            <li><a class="navAnchors" href="#experiencia"> experiencia </a></li>
+            <li><a class="navAnchors" href="#proyectos"> proyectos </a></li>
+        </ul>
+    </nav>
+    <hr>
+</header>
+    <video autoplay muted loop poster="src/img/yo.jpeg"  width="200px" src=""></video>
+    
+    <iframe 
+        style=" width:30%; aspect-ratio: 16/9; "
+        src="https://www.youtube.com/embed/3nYLTiY5skU?si=7FoTtgdBZdIfN-9D"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+    ></iframe>
+    <dialog id="modalDialog" >
+        <h1>¿Sbías que puedes abrir un modal así?</h1>
+        <p>¡Y es totalmente nativo!</p>
+        <button id="modalClose" onclick=closeModal()>cerrar modal</button>
+    </dialog>
+    <button id="modalOpen">Ver más Información</button>
+    <script>
+
+        const modalDialog = document.getElementById('modalDialog');
+        const modalOpen = document.getElementById('modalOpen');
+        const modalClose = document.getElementById('modalClose');
+
+        modalOpen.addEventListener('click', () => {
+            modalDialog.showModal();
+        });
+        modalClose.addEventListener('click', () => {
+            modalDialog.close();
+        });
+        
+    </script>
+    <main>
+        <p>+2 de años como desarrollador y programdor<strong>estudiante universitario y autodidacta</strong></p>
+    
+        <h2 id="experiencia">
+            Experiencia
+        </h2>
+        <ul>
+            <li class="list-item">AADES (2021): Proyecto academico</li>
+            <li class="list-item">Plantmatica (2021-2022): Proyecto academico</li>
+        </ul>
+        <a
+          download
+          href="src/img/yo.jpeg"
+        >
+            <img
+                id="photo-image"
+                title="Sergio-Foto"
+                alt="Sergio Arce Foto cualquiera jajaja"
+                src="src/img/yo.jpeg"
+                loading="lazy"
+                width ="300px"
+            />
+        </a>
+    
+        <h2 id="proyectos"> ¡Proyectos Realizados!</h2>
+    
+        <aside>
+            <header>
+                <h2>Mis Tecnologías Favoritas</h2>
+            </header>
+            <ol type="1" reversed start="30">
+                <h3>Front-end:</h3>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS/TS</li>
+                <li>Tailwind CSS</li>
+                <li>Astro</li>
+                <li>NodeJS</li>
+            </ol>
+        </aside>
+    
+        <button >
+            ¡dame click!
+        </button>
+    
+        <section>
+            <article>
+                <header>
+                    <h3>
+                        Sitio Web Corporativo
+                    </h3>
+                </header>
+                <p>
+                    Desarrollo de un web Corporativo con una interfaz amigable y moderna.
+                </p>
+                <footer>
+                    <small>Tecnologías usadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h3>
+                        
+                    </h3>
+                    <img 
+                        style="width:25%; aspect-ratio:1/1"
+                        loading="lazy"
+                        src="src/img/ahri.main.jpeg"
+                        alt="MI RUCALETA"
+                    >
+                </header>
+                <p>
+                    Mi vieja de 49 que tengo
+                </p>
+                <footer>
+                    <small>Tecnologías usadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h3>
+                        Sitio Web Corporativo
+                    </h3>
+                </header>
+                <p>
+                    Desarrollo de un web Corporativo con una interfaz amigable y moderna.
+                </p>
+                <footer>
+                    <small>Tecnologías usadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+        </section>
+
+        <section>
+            <h2>Preguntas frecuentes</h2>
+            <details>
+                <summary>¿Qué estudios tienes?</summary>
+                <p>
+                    Estudié en la mejor escuela nivel medio superior de México (si no es que también la mejor de LATAM) por 4 años <strong>C.E.C.yT. no 9 "Juan de Dios Batiz"</strong>
+                    <br>También tuve una beca por parte de la asociación de <strong>Oracle y Alura</strong> en un plan de estudios de 6 meses
+                    <br>Actualmente estudio en la UAM de AZC en la carrera de ciencias computacionales
+                </p>
+            </details>
+            <details>
+                <summary>¿Qué estudio por mi cuenta?</summary>
+                <p>
+                    Ut exercitation sit nulla occaecat sint occaecat non do ea irure. Ad laboris veniam reprehenderit ullamco sint et aliquip ipsum irure do cupidatat est veniam reprehenderit. Lorem sit eu deserunt nostrud ad do laboris.
+                </p>
+            </details>
+            <details>
+                <summary>¿Qué hobbys tengo?</summary>
+                <p>
+                Sunt nisi elit cupidatat officia est do aute. Duis laboris esse eiusmod sunt. Consectetur adipisicing consequat sit ad in incididunt ea ex consequat ullamco amet est nulla quis. Aliqua deserunt laboris qui nisi laboris aliquip reprehenderit eu tempor enim. Consectetur quis velit sint qui velit deserunt ipsum nostrud. Nostrud aliqua est amet deserunt dolor sunt in aliqua velit dolore Lorem commodo. Est ut nostrud in ea tempor elit anim esse quis amet.
+                </p>
+            </details>
+            <details>
+                <summary>¿Cómo cuido mi salud?</summary>
+                <p>
+                    Velit officia irure eu culpa consequat quis enim culpa et exercitation aliquip culpa voluptate et. Sit cillum qui velit in nulla et sit aliqua. Exercitation esse est ut aliquip occaecat culpa ea consequat laboris. Mollit eu ut ullamco reprehenderit excepteur ipsum deserunt.
+                </p>
+            </details>
+        </section>
+
+        <section>
+            <h2>Formulario de contacto</h2>
+            <form 
+                method="post"
+                action="/"
+            >
+                <fieldset>
+                    <legend>Información personal</legend>
+                    <!-- <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe"> -->
+                    <label style="display:block;">Nombre:
+                        <input type="text" name="name" placeholder="John Doe" required>
+                    </label>
+                    <label style="display:block;">Email:
+                        <input type="email" name="email" placeholder="john.doe@gmail.com" required>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Información adicional</legend>
+                    <label style="display:block;">Teléfono:
+                        <input type="tel" name="phone" placeholder="+00000000000" pattern="/[0-9]{9}/gi">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Otros</legend>
+                    <label for="why"">¿Por qué quieres contactar?:
+                        <select name="why" id="why">
+                            <option value="1">Trabajo</option>
+                            <option value="2">Duda</option>
+                            <option value="3">Más</option>
+                        </select>
+                    </label>
+                    <label style="display:block;" for="terms">¿Aceptas los terminos?
+                        <input type="checkbox" id="terms" name="terms" required>
+                    </label>
+                    <div>
+                        <datalist id="languages">
+                            <option value="JavaScript"></option>
+                            <option value="Python"></option>
+                            <option value="C#"></option>
+                            <option value="PHP"></option>
+                            <option value="Java"></option>
+                        </datalist>
+                        <label for="">
+                            ¿Con que lenguaje quieres que te ayude
+                            <input list="languages" name="languages" />
+                        </label>
+                    </div>
+                </fieldset>
+                <button>Enviar Información </button>
+                <!-- <input type="submit" value="enviar Información"> -->
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        Copyright 2024: Sergio Elias Arce Roldán en México
+        
+        <h4>contacto</h4>
+        <ul>
+            <li> <a href="mailto:arce.roldan.sergio@gmail.com">Correo principal</a> </li>
+            <li> <a href="tel:+525576454903">Número celular</a> </li>
+            <li> <a href="whatsapp://send?=Hola+Sergio!">whatsapp </li>
+        </ul>
+    </footer>
+</body>
+</html>
