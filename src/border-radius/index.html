@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borde de un circulo</title>
+    <meta name="description" content="Editor de un borde de un circulo">
+    <meta name="og:tile" content="Borde de un circulo">
+    <meta name="og:image" content="./public/favicon.svg">
+    <meta name="og:image:alt" content="Borde de un circulo">
+    <link rel="icon" type="image/svg" href="./public/favicon.svg"">
+</head>
+<body>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    
+        .mainTitle {
+            text-align: center;
+            font-size: 2em;
+            margin: 0.5rem auto;
+        }
+    
+        .nav{
+            display: flex;
+            justify-content: center;
+        }
+    
+        .navRouter{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+    
+        .navAnchors {
+            margin: 1rem 2rem;
+            padding: 0.3rem;
+            text-decoration: none;
+            text-align: center;
+        }
+    
+        .navAnchors:hover{
+            background-color: rgb(59, 59, 59);
+        }
+        
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+    
+        .circle{
+            background-color: rgb(187, 0, 255);
+            height: 250px;
+            width: 250px;
+            margin: 4rem auto;
+            border-color: rgb(234, 255, 0);
+            border-radius: 150px 150px 150px 150px;
+        }
+
+        .inputsBorders{
+            display: flex;
+            flex-direction: column;
+            margin: 2rem auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .labelsCircle, input[type="text"]{
+            margin: 1rem auto;
+            width: 200px;
+            text-align: center;
+        }
+
+        .buttons{
+        margin: 1rem auto;
+        border-radius: 0.3rem;
+        color: rgb(255, 255, 255);
+    }
+    </style>
+<header>
+    <h1 class="mainTitle" >Conversores Decimal y Binario</h1>
+    <nav class="nav">
+        <ul class="navRouter">
+            <li><a class="navAnchors" href="/projects/"> Portafolio </a></li>
+        </ul>
+    </nav>
+    <hr>
+</header>
+<main>
+    <div class="circle" id="circle">
+    </div>
+    <article class="inputsBorders">
+        <label class="labelsCircle"  for="inputBordeSuperior" name="bordeSuperior"> Borde Superior </label>
+        <input type="text" pattern="/^[0-9]$/" name="inputBordeSuperior" id="inputBordeSuperior">
+        <label class="labelsCircle"  for="inputBordeInferior" name="bordeInferior"> Borde Inferior </label>
+        <input type="text" pattern="/^[0-9]$/" name="inputBordeInferior" id="inputBordeInferior">
+        <label class="labelsCircle"  for="inputBordeIzquierdo" name="bordeIzquierdo"> Borde Izquierdo </label>
+        <input type="text" pattern="/^[0-9]$/" name="inputBordeIzquierdo" id="inputBordeIzquierdo">
+        <label class="labelsCircle"  for="inputBordeDerecho" name="bordeDerecho"> Borde Derecho </label>
+        <input type="text" pattern="/^[0-9]$/" name="inputBordeDerecho" id="inputBordeDerecho">
+        <button class="buttons" onclick=setStyleChanges() > Aplicar cambios </button>
+        <button class="buttons" onclick=copyStyles()> Copiar valores </button>
+    </article>
+        
+    <script>
+        const circle = document.getElementById('circle');
+
+        const setStyleChanges = () => {
+            const borderSuperior  = document.getElementById('inputBordeSuperior') .value;
+            const borderInferior  = document.getElementById('inputBordeInferior') .value;
+            const borderIzquierdo = document.getElementById('inputBordeIzquierdo').value;
+            const borderDerecho   = document.getElementById('inputBordeDerecho')  .value;
+            circle.style.borderRadius = `${borderSuperior}px ${borderInferior}px ${borderIzquierdo}px ${borderDerecho}px`
+        };
+
+        const copyStyles = () =>{
+            let { borderRadius } = window.getComputedStyle(circle);
+            navigator.clipboard.writeText( borderRadius ).then( () =>{
+                alert(`"${borderRadius}" copiados exitosamente!`);
+            }).catch( err => {
+                alert('Lamento el incoveniente, pero no fue posible copiar los valores :C');
+            });
+        };
+        setStyleChanges();
+    </script>
+</main>
+</div>
+</body>
+</html>
