@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calculadora</title>
+    <!-- <meta name="robots" content="index, follow"/> -->
+    <meta name="description" content="Calculadora de Sergio E. Arce R."/>
+    <meta name="og:title" content="Calculadora de Sergio E. Arce R."/>
+    <meta name="og:image" content="./public/calculator.jpeg"/>
+    <meta name="og:image:alt" content="Calculadora de Sergio E. Arce R."/>
+    <link rel="icon" type="image/svg" href="./public/favicon.svg" />
+    <!-- <link rel="alternate" type="http://algo.com/en" hreflang="es-gb"> Para contenido duplicado pero en diferentes idiomas-->
+    <link rel="canonical" href="https://serar.dev" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+    :root {
+        color-scheme: dark;
+    }
+    body {  
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: grid;
+        min-height: 100vh;
+        place-content: center;
+    }  
+
+    .mainTitle {
+        text-align: center;
+        font-size: 2em;
+        margin: 0.5rem auto;
+    }
+
+    .nav{
+        display: flex;
+        justify-content: center;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
+
+    section{
+        display: grid;
+        grid-template-columns: repeat(4, 50px);
+    }
+
+    button{
+        cursor: pointer;
+        border: 1px solid #fff;
+        width: 50px;
+        height: 50px;
+    }
+    button:hover{
+        filter: brightness(90%);
+    }
+
+    .op{
+        background-color: #09f;
+    }
+
+    .clears{
+        background-color: red;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    input{
+        border: 0;
+        padding: 4px;
+        font-size: 1.5em;
+        text-align: right;
+        width: 200px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="mainTitle" >Calculadora ¡Por Sergio Arce!</h1>
+        <nav class="nav">
+            <ul class="navRouter">
+                <li><a class="navAnchors" href="/projects/"> Portafolio </a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <input autofocus id="display" value="0"></input>
+        <section>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="op">*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="op">+</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="op">-</button>
+            <button>0</button>
+            <button class="op">=</button>
+            <button class="op">.</button>
+            <button class="op">/</button>
+            <button class="clears">C</button>
+        </section>
+    </main>
+    <script>
+        const buttons = document.querySelectorAll('button');
+        const display = document.querySelector('#display');
+        
+        const calculator = {
+            displayValue: '',
+            firstOperand: null,
+            operator: null,
+            waitingForSecondOperand: false,
+        }
+
+        const calculations = {
+            '/': ( a, b ) => a/b,
+            '*': ( a, b ) => a*b,
+            '+': ( a, b ) => a+b,
+            '-': ( a, b ) => a-b,
+        }
+
+        const updateDisplay = () => display.value = calculator.displayValue;
+        updateDisplay();
+
+        const performCalculation = ( operator ) =>{
+            const value = parseFloat(calculator.displayValue);
+            if (calculator.firstOperand == null) {
+                calculator.firstOperand = value
+            }
+            else if (calculator.operator){
+                const result = calculations[calculator.operator](calculator.firstOperand, value);
+                calculator.displayValue = result;
+                calculator.firstOperand = result;
+            };
+            calculator.waitingForSecondOperand = true;
+            calculator.operator = operator;
+            updateDisplay();
+        };
+
+        buttons.forEach( button => {
+            button.addEventListener('click', () => {
+                const key = button.innerText;
+                if( key === 'C' ){
+                    calculator.displayValue = '0';
+                    calculator.firstOperand = null;
+                    calculator.waitingForSecondOperand = false;
+                    calculator.operator = null;
+                } else if( key === '='){
+                    performCalculation(calculator.operator)
+                }else if( key === '+' || key === '-' || key === '*' || key === '/'){
+                    performCalculation(key)
+                }else if( key === '.'){
+                    if(!calculator.displayValue.includes('.')){
+                        calculator.displayValue += '.';
+                    }
+                } else {
+                    if( calculator.waitingForSecondOperand ){
+                        calculator.displayValue = key;
+                        calculator.waitingForSecondOperand = false;
+                    } else {
+                        calculator.displayValue += key; 
+                    }
+                }
+                updateDisplay();
+            })
+        });
+    </script>
+</body>
+</html>
