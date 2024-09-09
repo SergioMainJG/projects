@@ -12,6 +12,8 @@ Open the project in your editor code and run with live preview or live server
 
 ## See the project
 
+projecto url:
+
 ```code
-https://sergiomainjg.github.io/projects/src/single-page-cv/
+https://cv-arce-roldan-sergio-elias.netlify.app/
 ```
