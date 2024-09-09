@@ -12,7 +12,7 @@ Open the project in your editor code and run with live preview or live server
 
 ## See the project
 
-projecto url:
+project URL:
 
 ```code
 https://cv-arce-roldan-sergio-elias.netlify.app/
