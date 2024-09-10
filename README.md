@@ -21,7 +21,7 @@ https://cv-arce-roldan-sergio-elias.netlify.app/
 Basic HTML Website:
 
 ```code
-https://html-basic-sear.netlify.app/contact
+https://html-basic-sear.netlify.app/
 ```
 
 ## List Projects

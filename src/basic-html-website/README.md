@@ -15,7 +15,7 @@ Open the project in your editor code and run with live preview or live server
 project URL:
 
 ```code
-https://html-basic-sear.netlify.app/contact
+https://html-basic-sear.netlify.app
 ```
 
 ## List Projects
