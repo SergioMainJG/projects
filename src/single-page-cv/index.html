@@ -35,14 +35,17 @@
     h1{
         font-size: 1.80rem;
         color: rgb(0, 0, 0);
+        margin-bottom: 2rem;
     }
     h2{
         font-size: 1.3rem;
         color: rgb(62, 152, 255);
+        margin-bottom: 2rem;
     }
     h3{
         font-size: 1rem;
         color: rgb(0, 55, 117);
+        margin-bottom: 2rem;
     }
     ul{
         list-style-type: circle;
@@ -53,8 +56,44 @@
         padding: 0.5rem;
         width: 95%;
     }
+    p{
+        margin-bottom: 2rem;
+        max-width: 90vw;
+    }
+    
+    .nav{
+        display: flex;
+        justify-content: center;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
 </style>
 <body>
+    <header>
+        <header>
+            <nav class="nav">
+                <ul class="navRouter">
+                    <li><a class="navAnchors" href="/"> Portafolio </a></li>
+                </ul>
+            </nav>
+            </header>
+    </header>
     <hr />
     <main>
         <header>

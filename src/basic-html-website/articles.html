@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Basic HTML</title>
+    <link rel="icon" type="image/svg" href="./public/favicon.svg">
+    <meta name="keywords" content="Sergio, Elias, Arce, Roldán, Programador, Developer, Desarrollador, Fullstack, Frontend, HTML, CSS"/>
+    <meta name="author" content="Sergio Elias Arce Roldán"/>
+    <meta property="og:title" content="HTML Basic Sergio Elias Arce Roldán"/>
+    <meta property="og:description" content="Esqueleto de una página HTML "/>
+    <meta property="og:image" content="https://res.cloudinary.com/dns57ldal/image/upload/v1725983143/html_j2fkdq.webp"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <!-- <meta property="og:image:width" content="400"/> -->
+    <!-- <meta property="og:image:height" content="710"/> -->
+    <meta property="og:image:alt" content="HTML Basics Elements and Simple CSS"/>
+    <meta property="og:url" content="https://html-basic-sear.netlify.app/"/>
+    <meta property="og:type" content="website">
+
+
+</head>
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+        border-bottom: 1px solid black;
+    }
+
+    header .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    header .logo img {
+        width: 5rem;
+        aspect-ratio: 1/1;
+        margin-right: 1rem;
+        border-radius: 9rem;
+    }
+
+    header .logo span {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav{
+        display: flex;
+        gap: 1rem;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
+    
+    main{
+        text-align: center;
+    }
+
+    section{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    article {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgb(0 0 0/1%);
+    }
+    h2, h3, p{
+        margin: 10px 0;
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./public/logo.webp" alt="logo"/>
+            <span>Sergio Arce</span>
+        </div>
+        <nav class="nav">
+            <!-- <ul class="navRouter">
+                <li><a class="navAnchors" href="/"> Portafolio </a></li>
+            </ul> -->
+            <ul class="navRouter">
+                <li><a href="./" class="navAnchors">Home</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./projects.html" class="navAnchors">Projects</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./articles.html" class="navAnchors">Articles</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./contact.html" class="navAnchors">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <h1>Articles</h1>
+        <section>
+            <article>
+                <h2>Title</h2>
+                <h3>Description</h3>
+                <p>Date: dd/mm/yyyy</p>
+                <h3>author</h3>
+            </article>
+            <article>
+                <h2>Title</h2>
+                <h3>Description</h3>
+                <p>Date: dd/mm/yyyy</p>
+                <h3>author</h3>
+            </article>
+            <article>
+                <h2>Title</h2>
+                <h3>Description</h3>
+                <p>Date: dd/mm/yyyy</p>
+                <h3>author</h3>
+            </article>
+            <article>
+                <h2>Title</h2>
+                <h3>Description</h3>
+                <p>Date: dd/mm/yyyy</p>
+                <h3>author</h3>
+            </article>
+            <article>
+                <h2>Title</h2>
+                <h3>Description</h3>
+                <p>Date: dd/mm/yyyy</p>
+                <h3>author</h3>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

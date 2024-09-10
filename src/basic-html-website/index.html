@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Basic HTML</title>
+    <link rel="icon" href="./public/favicon.svg" />
+    <meta name="keywords" content="Sergio, Elias, Arce, Roldán, Programador, Developer, Desarrollador, Fullstack, Frontend, HTML, CSS"/>
+    <meta name="author" content="Sergio Elias Arce Roldán"/>
+    <meta property="og:title" content="HTML Basic Sergio Elias Arce Roldán"/>
+    <meta property="og:description" content="Esqueleto de una página HTML "/>
+    <meta property="og:image" content="https://res.cloudinary.com/dns57ldal/image/upload/v1725983143/html_j2fkdq.webp"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <!-- <meta property="og:image:width" content="400"/> -->
+    <!-- <meta property="og:image:height" content="710"/> -->
+    <meta property="og:image:alt" content="HTML Basics Elements and Simple CSS"/>
+    <meta property="og:url" content="https://html-basic-sear.netlify.app/"/>
+    <meta property="og:type" content="website">
+
+</head>
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+        border-bottom: 1px solid black;
+    }
+
+    header .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    header .logo img {
+        width: 5rem;
+        aspect-ratio: 1/1;
+        margin-right: 1rem;
+        border-radius: 9rem;
+    }
+
+    header .logo span {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav{
+        display: flex;
+        gap: 1rem;
+    }
+
+    .navRouter{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    .navAnchors {
+        margin: 1rem 2rem;
+        padding: 0.3rem;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navAnchors:hover{
+        background-color: rgb(59, 59, 59);
+    }
+
+    hr{
+        width: 100%;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .Description {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+
+    .Experiences {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .Projects, .Works, .Education {
+        border: 1px solid black;
+        padding: 20px;
+    }
+
+    .Projects h2, .Works h2, .Education h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .Projects ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .Projects li {
+        padding: 5px 0;
+    }
+
+    .Works {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .Works div {
+        border-top: 1px solid black;
+        padding-top: 10px;
+    }
+
+    .Education ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .Education li {
+        padding: 5px 0;
+    }
+
+    .Reviews {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .Reviews article{
+        display: inline-block;
+        width: 25%;
+        border: 1px solid black;
+        padding: 1rem;
+        margin: 0 1rem;
+        border-radius: 3rem;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9rem;
+    }
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./public/logo.webp" alt="logo"/>
+            <span>Sergio Arce</span>
+        </div>
+        <nav class="nav">
+            <!-- <ul class="navRouter">
+                <li><a class="navAnchors" href="/"> Portafolio </a></li>
+            </ul> -->
+            <ul class="navRouter">
+                <li><a href="./" class="navAnchors">Home</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./projects.html" class="navAnchors">Projects</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./articles.html" class="navAnchors">Articles</a></li>
+            </ul>
+            <ul class="navRouter">
+                <li><a href="./contact.html" class="navAnchors">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <article class="Description">
+            <h1>
+                Frontend developer
+            </h1>
+            <h3>
+                HTML only with proper layout, no styling
+            </h3>
+        </article>
+        <article class="Experiences">
+            <div class="Projects">
+                <h2>
+                    Projects
+                </h2>
+                <ul>
+                    <li>
+                        Project 1
+                    </li>
+                    <li>
+                        Project 2
+                    </li>
+                    <li>
+                        Project 3
+                    </li>
+                    <li>
+                        Project 4
+                    </li>
+                    <li>
+                        Project 5
+                    </li>
+                </ul>
+            </div>
+            <div class="Works">
+                <div>
+                    <h2>
+                        Work Experience
+                    </h2>
+                </div>
+                <div>
+                    <h2>
+                        Opensource Work
+                    </h2>
+                </div>
+            </div>
+            <div class="Education">
+                <h2>
+                    Education
+                </h2>
+            </div>
+        </article>
+        <hr/>
+        <section class="Reviews">
+            <h2>Reviews</h2>
+            <article>
+                <p>John Doe Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis temporibus consectetur architecto dolorem </p>
+                <h3>
+                    Jane Doe
+                    <br/>
+                    <h4>Assistant Professor</h4>
+                </h3>
+            </article>
+            <article>
+                <p>John Doe Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis temporibus consectetur architecto dolorem </p>
+                <h3>
+                    Jane Doe
+                    <br/>
+                    <h4>Assistant Professor</h4>
+                </h3>
+            </article>
+            <article>
+                <p>John Doe Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis temporibus consectetur architecto dolorem </p>
+                <h3>
+                    Jane Doe
+                    <br/>
+                    <h4>Assistant Professor</h4>
+                </h3>
+            </article>
+        </section>
+        <hr>
+        <footer>
+            <h2>Sergio Arce <img src="public/registerd.svg" alt="Registered"> </h2> 
+        </footer>
+    </main>
+</body>
+</html>
