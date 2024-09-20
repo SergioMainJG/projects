@@ -21,7 +21,7 @@
             color: rgb(54, 88, 182);
             text-align: center;
             font-size: 4rem;
-            transition: 0.2s;
+            transition: 1.0s;
             text-shadow: none;
         }
         h1:hover{
@@ -33,17 +33,145 @@
             0 0 0.4rem rgb(197, 196, 230),
             0 0 0.5rem rgb(255, 255, 255);
         }
-        
-    
-    
+        h4{
+            text-align: center;
+            color: rgb(119, 119, 119);
+            transition: 0.5s;
+            text-shadow: none;
+        }
+        h4:hover{
+            color: white;
+            text-shadow: 
+            0 0 0.1rem rgb(119, 119, 150)
+            0 0 0.2rem rgb(119, 119, 180)
+            0 0 0.3rem rgb(119, 119, 210)
+            0 0 0.4rem rgb(119, 119, 240)
+            0 0 0.5rem rgb(119, 119, 255);
+        }
+        .changelog-container {  
+            max-width: 100vw;  
+            margin: auto;  
+            padding: 0.5rem;  
+            border-radius: 9rem;
+        }  
+        .changelog {  
+            display: flex;  
+            flex-direction: column;  
+            position: relative;
+            margin: 1rem auto;
+            padding-left: 1rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            max-width: 600px;
+            padding: 2rem;
+        }  
+        .changelog::before {  
+            content: '';  
+            position: absolute;  
+            top: 0;  
+            bottom: 0;  
+            left: 2.5rem;  
+            width: 2px;  
+            background-color: rgb(170, 170, 170);  
+            z-index: 1;
+        }
+        .changelog-item {  
+            display: flex;  
+            align-items: center;  
+            margin: 1rem 0;  
+            position: relative;  
+            z-index: 2;
+        }  
+        .date {
+            text-align: right;
+            margin-right: 1rem;
+            font-weight: bold;  
+            min-width: 8rem;
+        }  
+        .content {  
+            display: flex;  
+            align-items: center;  
+        }  
+        .dot {  
+            width: 0.75rem;  
+            height: 0.75rem;  
+            background-color: rgb(170, 170, 170);  
+            border-radius: 50%;  
+            margin-right: 1rem;
+            z-index: 3;
+        }  
+        .view-more {  
+            margin-top: 20px;  
+            padding: 10px 20px;  
+            background-color: #007bff;  
+            color: white;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+        }  
+        .view-more:hover {  
+            background-color: #0056b3;  
+        }   
     </style>
     <header>
         <h1>
             Change log
         </h1>
-        
+        <h4>Here's everything we have shipped in the past few days</h4>
     </header>
-    <main>
+    <main class="changelog-container">  
+        <div class="changelog">  
+            <div class="changelog-item">  
+                <span class="date">September 3, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Announcing Projects on Frontend Roadmap</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 28, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Build your learning habits with learning streaks</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 25, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Git and GitHub Roadmap</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 22, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Submit your project solution and get feedback</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 15, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Backend Project Ideas</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 10, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Redis roadmap</p>  
+                </div>  
+            </div>  
+            <div class="changelog-item">  
+                <span class="date">August 1, 2024</span>  
+                <div class="content">  
+                    <div class="dot"></div>  
+                    <p>Changelog page to help you stay in the loop</p>  
+                </div>  
+            </div>  
+        </div>  
+        <button class="view-more">Visit Complete Changelog</button>  
     </main>
 </body>
 </html>

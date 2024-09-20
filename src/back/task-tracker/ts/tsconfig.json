@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    // Enable latest features
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+    
+    "baseUrl": ".",
+    "paths": {
+      "@src/*" : ["src/*"],
+      "@test/*" : ["test/*"],
+      "@presentation/*" : ["src/presentation/*"],
+      "@store/*" : ["src/store/*"],
+      "@task/*" : ["src/task/*"],
+      "@util/*" : ["src/util/*"],
+      
+      "@task.ds" : ["src/task/task.ds.ts"],
+      "@store.management" : ["src/store/store.management.ts"],
+      "@console.interface" : ["src/presentation/console.interface.ts"],
+      
+    }
+  }
+}
