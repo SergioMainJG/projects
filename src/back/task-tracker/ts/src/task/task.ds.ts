@@ -61,7 +61,7 @@ export const ManageTaskList = {
         return {
             msg: `The task with id: ${ idTask } was marked as ${ state }`,
             task: taskToUpdate,
-        }
+        };
     },
     deleteTask: function( idTask: number ): string {
         const taskToDelete = this.taskList.find( ({id}) => id === idTask );
