@@ -35,7 +35,7 @@
       
       "@task.ds" : ["src/task/task.ds.ts"],
       "@store.management" : ["src/store/store.management.ts"],
-      "@console.interface" : ["src/presentation/console.interface.ts"],
+      "@console" : ["src/presentation/console.ts"],
       
     }
   }

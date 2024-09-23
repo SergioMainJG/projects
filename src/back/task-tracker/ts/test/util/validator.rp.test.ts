@@ -1,6 +1,5 @@
 import * as testing from 'bun:test';
 
-import { Formatter } from "@util/date.formatter";
 import { Result } from '@src/util/validator.rp';
 
 testing.describe("Testing for src/util/validator.rp.ts", () => {

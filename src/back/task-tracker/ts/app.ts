@@ -1,5 +1,4 @@
-import { styleText } from 'node:util';
-import * as FileSysPromises from 'node:fs/promises';
+import { styleText, inspect } from 'node:util';
 
 ( async () => {
     console.log(`${styleText("blueBright", "¡HOLA DESDE")} ${styleText("redBright", "TU FUNCIÓN")} ${styleText("magentaBright", "AUTOINVOCADA!")}`);
@@ -14,5 +13,8 @@ import * as FileSysPromises from 'node:fs/promises';
     //! }
     //! const content = <IContent>getFilesContentAsJSON("src/storage/task-store.json");
     //! console.log(`${content.hello}`)
-    console.log( await FileSysPromises.exists('README.md') );
+    //@ts-ignore
+    console.log( styleText('red', 'hello world!') );
+
+    inspect.colors.custom 
 })();
