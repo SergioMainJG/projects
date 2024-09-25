@@ -1,4 +1,4 @@
-import { Formatter } from "./date.formatter";
+import { Formatter } from "@util/date.formatter";
 
 export class Result<T>{
     static register: string[] = [];

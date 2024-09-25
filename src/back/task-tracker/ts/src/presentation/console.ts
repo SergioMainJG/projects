@@ -2,14 +2,16 @@ import * as rlPromise from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import { styleText } from 'node:util';
 
-export const createQuestion = ( message: string ): Promise<string> => {
+export const createQuestion = async ( message: string ): Promise<string> => {
     const consoleInteraction = rlPromise.createInterface({
         input: input,
         output: output,
         prompt: "Type here:-->"
     });
 
-    return consoleInteraction.question(`\n${message}\n`);
+    const res = await consoleInteraction.question(`\n${message}\n`);
+    consoleInteraction.close();
+    return res;
 };
 
 export const createPause = () => {
@@ -18,13 +20,16 @@ export const createPause = () => {
         output: output,
         prompt: "Type here:-->"
     });
-
-    // consoleInteraction.question()
+    consoleInteraction.question(ColorsText.bgGreen('Type any key to resume'));
+    consoleInteraction.close();
+    return;
 };
 
+export const clear = ( option: string ) =>{
+    if ( option.trim().match(/^c(lear)?$/i) ) console.clear()
+};
 
-
-const ColorsText = {
+export const ColorsText = {
     bgBlue: ( message: string ) => styleText('bgBlue', message),
     bgBlueBright: ( message: string ) => styleText('bgBlueBright', message),
     bgCyan: ( message: string ) => styleText('bgCyan', message),

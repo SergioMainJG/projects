@@ -1,4 +1,4 @@
-import { Formatter } from '../util/date.formatter';
+import { Formatter } from '@util/date.formatter';
 
 export type TStatus = 'undone' | 'inProgress' | 'done' ;
 
@@ -23,7 +23,11 @@ export const ManageTaskList = {
         return "Task list was created succesfully";
     },
     
-    saveTaskList: function(){
+    saveTaskList: async function( methodSave: Function, pathFile: string, content: ITasks[] ): Promise<string>{
+        const wasSaved = await methodSave( pathFile, JSON.stringify( content ) );
+        if( !wasSaved.isSucces )
+            return `${wasSaved.Error}`;
+        return `${wasSaved.value}`;
     },
 
     addTask: function( description: string ): ITasks {
